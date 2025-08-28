@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import SummaryPanel from "./SummaryPanel";
+import { Link } from "react-router-dom"; // Add this
 
 const Dashboard = () => {
   return (
@@ -16,9 +17,9 @@ const Dashboard = () => {
             <div style={{ display: "flex", gap: 12, marginTop: 12 }}>
               <div className="card" style={{ flex: 1 }}>
                 <h4>Quick Actions</h4>
-                <div className="small"><a href="/mark">→ Mark Attendance</a></div>
-                <div className="small"><a href="/student">→ Student Records</a></div>
-                <div className="small"><a href="/summary">→ Student Summary</a></div>
+                <div className="small"><Link to="/mark">→ Mark Attendance</Link></div>
+                <div className="small"><Link to="/student">→ Student Records</Link></div>
+                <div className="small"><Link to="/summary">→ Student Summary</Link></div>
               </div>
               <div className="card" style={{ flex: 1 }}>
                 <h4>Recent</h4>

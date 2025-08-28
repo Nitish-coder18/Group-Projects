@@ -1,47 +1,46 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Add this
 import axios from "axios";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
-
-  // Form state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate(); // Add this
+
   const toggleMode = () => setDarkMode(!darkMode);
   const toggleForm = () => setIsLogin(!isLogin);
 
-  // API base URL
   const API_URL = "http://localhost:8080/auth";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (isLogin) {
-        // Login API Call
         const response = await axios.post(`${API_URL}/login`, {
-          username: email, // backend expects username field
+          username: email,
           password: password
         });
         console.log("Login Success:", response.data);
         if (response.data.token) {
           localStorage.setItem("token", response.data.token);
+          alert("Login Successful!");
+          navigate("/dashboard"); // redirect after login
         }
-        alert("Login Successful!");
       } else {
-        // Signup API Call with ADMIN role
         const response = await axios.post(`${API_URL}/signup`, {
           username: email,
           password: password,
-          role: "ADMIN", // changed USER to ADMIN
+          role: "ADMIN",
           fullName: name,
           email: email
         });
         console.log("Signup Success:", response.data);
         alert("Signup Successful!");
-        setIsLogin(true); // switch to login after signup
+        setIsLogin(true);
       }
     } catch (error) {
       if (error.response) {
@@ -58,7 +57,6 @@ const AuthPage = () => {
     <div className={`${darkMode ? "dark" : ""} min-h-screen`}>
       <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
         <div className="w-full max-w-md p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg transition-all duration-500 transform">
-          {/* Dark Mode Toggle */}
           <button
             onClick={toggleMode}
             className="absolute top-4 right-4 bg-gray-200 dark:bg-gray-700 p-2 rounded-full text-gray-800 dark:text-gray-200"
