@@ -12,6 +12,10 @@ const MarkAttendance = () => {
   const [statusMap, setStatusMap] = useState({});
   const [loading, setLoading] = useState(false);
 
+  // new state for add student form
+  const [newId, setNewId] = useState("");
+  const [newName, setNewName] = useState("");
+
   useEffect(() => {
     if (!className) { setStudents([]); setStatusMap({}); return; }
     setLoading(true);
@@ -55,6 +59,18 @@ const MarkAttendance = () => {
       console.error(e);
       alert("Failed to submit attendance. See console.");
     }
+  };
+
+  // add student manually
+  const addStudent = () => {
+    if (!newId || !newName) return alert("Enter ID and Name");
+    if (students.some(s => String(s.id) === String(newId))) return alert("Student ID already exists");
+
+    const newStu = { id: newId, name: newName };
+    setStudents([...students, newStu]);
+    setStatusMap(m => ({ ...m, [newId]: "ABSENT" }));
+    setNewId("");
+    setNewName("");
   };
 
   return (
@@ -105,6 +121,29 @@ const MarkAttendance = () => {
                       ))}
                     </tbody>
                   </table>
+
+                  {/* Add Student Form */}
+                  <div style={{ marginTop:20, padding:12, border:"1px solid #ccc", borderRadius:6 }}>
+                    <h4>Add Student</h4>
+                    <div style={{ display:"flex", gap:8, alignItems:"center" }}>
+                      <input
+                        type="text"
+                        placeholder="ID"
+                        value={newId}
+                        onChange={e => setNewId(e.target.value)}
+                        className="input"
+                        style={{ width:100 }}
+                      />
+                      <input
+                        type="text"
+                        placeholder="Name"
+                        value={newName}
+                        onChange={e => setNewName(e.target.value)}
+                        className="input"
+                      />
+                      <button className="btn btn-primary" onClick={addStudent}>Add</button>
+                    </div>
+                  </div>
                 </>
               )}
             </div>
