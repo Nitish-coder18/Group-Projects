@@ -64,9 +64,10 @@ body {
 /* Result text */
 #con > div:last-child {
     margin-top: 30px;
-    font-size: 32px;
+    font-size: 45px;
     font-weight: 700;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.45);
+    color: green;
+    text-shadow: 0 3px 12px rgba(179, 168, 168, 0.45);
 }
 
 .user {
