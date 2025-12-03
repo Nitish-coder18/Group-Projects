@@ -11,17 +11,18 @@
         </div>
         <div class="img">
             <div class="user">
-            <img src="assets/scroll.png" alt="">
-            <span><button class="btn">Rock</button></span>
-            <span><button class="btn">Paper</button></span>
-            <span><button class="btn">Scissor</button></span>
+            <img id="imguser" src="assets/scroll.png" alt="">
+            <span><button onclick="Picture('stone')" id="btn1" class="btn">Rock</button></span>
+            <span><button onclick="Picture('paper')" id="btn2" class="btn">Paper</button></span>
+            <span><button onclick="Picture('scissor')" id="btn3" class="btn">Scissor</button></span>
             </div>
             <div>
-            <img src="assets/rock-paper-scissors.png" alt="">
+            <img onclick="Computer()" src="assets/rock-paper-scissors.png" alt="">
             <p class="para">Computer Choice</p>
             </div>
         </div>
         <div>Result</div>
     </div>
 </body>
+<script src="Game.js"></script>
 </html>
