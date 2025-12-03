@@ -37,7 +37,7 @@ function App() {
         <Route path="/student" element={<ProtectedRoute><AppLayout><StudentAttendance /></AppLayout></ProtectedRoute>} />
         <Route path="/class" element={<ProtectedRoute><AppLayout><ClassAttendance /></AppLayout></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><AppLayout><ProfilePage /></AppLayout></ProtectedRoute>} />
-      </Routes>
+      </ Routes>
     </Router>
   );
 }
