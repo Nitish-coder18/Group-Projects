@@ -3,24 +3,26 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+
     display: flex;
-    justify-content: center;
-    align-items: center;       /* 👉 Full center horizontally + vertically */
+    justify-content: center;   /* Horizontal center */
+    align-items: center;       /* Vertical center */
+
     font-family: Poppins, Arial, sans-serif;
 
-    /* 👉 2-color mix gradient */
+    /* 2 Color Gradient */
     background: linear-gradient(135deg, #ff7eb3, #ffae6d);
     color: white;
 }
 
-/* Main container centered */
+/* Main container (centered block) */
 #con {
     text-align: center;
     width: 90%;
-    max-width: 900px;
+    max-width: 700px;
 }
 
-/* Main heading */
+/* Heading */
 #text {
     font-size: 48px;
     font-weight: 800;
@@ -29,15 +31,15 @@ body {
     text-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 
-/* Stylish image container (glass card) */
+/* Image container (glass card) */
 .img {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;   /* 👉 images center me */
     align-items: center;
-    width: fit-content;
+    gap: 40px;                 /* 👉 equal gap between images */
 
     background: rgba(255, 255, 255, 0.2);
-    padding: 35px;
+    padding: 50px;
     border-radius: 20px;
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
@@ -48,7 +50,7 @@ body {
     transform: scale(1.03);
 }
 
-/* Images */
+/* Individual Images */
 .img img {
     width: 170px;
     border-radius: 18px;
@@ -66,3 +68,49 @@ body {
     font-weight: 700;
     text-shadow: 0 3px 12px rgba(0,0,0,0.45);
 }
+
+.user {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.45);
+}
+
+.para {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 500;
+
+    color: #fff;
+    opacity: 0.95;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    letter-spacing: 0.5px;
+
+    padding: 10px 20px;
+}
+
+
